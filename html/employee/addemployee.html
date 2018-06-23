@@ -1,0 +1,123 @@
+<div class="breadcrumb-holder container-fluid">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a ui-sref="home.home">{{'HOME'| translate}}</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a ui-sref="home.employees">{{'EMPLOYEES' | translate}}</a>
+        </li>
+        <li class="breadcrumb-item active">{{'ADDEMPLOYEE' | translate}}</li>
+    </ul>
+</div>
+
+<section class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card animated fadeInUp">
+
+                    <div class="card-header d-flex align-items-center">
+                        <h3 class="h3">{{'ADDEMPLOYEE' | translate}}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>{{'FILLEMPLOYEEINFO' | translate}}</p>
+                        <form class="form-horizontal" name="addEmployeeForm" novalidate>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'FIRSTNAME' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeFirstName" name="employeeFirstName" ng-required="true" ng-model="firstName" type="text" placeholder="{{'FIRSTNAME' | translate}}"
+                                                class="form-control form-control-success">
+                                            <small class="invalidmsg animated fadeIn" ng-show="addEmployeeForm.employeeFirstName.$invalid && addEmployeeForm.employeeFirstName.$touched">{{'EMPFIRSTNAMEERR' | translate}}</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'LASTNAME' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeLastName" name="employeeLastName" ng-required="true" ng-model="lastName" type="text" placeholder="{{'LASTNAME' | translate}}"
+                                                class="form-control form-control-success">
+                                            <small class="invalidmsg animated fadeIn" ng-show="addEmployeeForm.employeeLastName.$invalid && addEmployeeForm.employeeLastName.$touched">{{'EMPLASTNAMEERR' | translate}}</small>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'GENDER' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeGender" name="employeeGender" ng-required="true" ng-model="gender" type="text" placeholder="{{'GENDER' | translate}}"
+                                                class="form-control">
+                                            <small class="invalidmsg animated fadeIn" ng-show="addEmployeeForm.employeeGender.$invalid && addEmployeeForm.employeeGender.$touched">{{'EMPGENDERERR' | translate}}</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'POSITION' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeePosition" name="employeePosition" ng-required="true" ng-model="position" type="text" placeholder="{{'POSITION' | translate}}"
+                                                class="form-control form-control-success">
+                                            <small class="invalidmsg animated fadeIn" ng-show="addEmployeeForm.employeePosition.$invalid && addEmployeeForm.employeePosition.$touched">{{'EMPPOSITIONERR' | translate}}</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'DEPARTMENT' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeDepartment" name="employeeDepartment" ng-required="true" ng-model="department" type="text" placeholder="{{'DEPARTMENT' | translate}}"
+                                                class="form-control form-control-success">
+                                            <small class="invalidmsg animated fadeIn" ng-show="addEmployeeForm.employeeDepartment.$invalid && addEmployeeForm.employeeDepartment.$touched">{{'EMPDEPARTMENTERR' | translate}}</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'ADDRESS' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeAddress" name="employeeAddress" ng-required="true" ng-model="address" type="text" placeholder="{{'ADDRESS' | translate}}"
+                                                class="form-control form-control-success">
+                                            <small class="invalidmsg animated fadeIn" ng-show="addEmployeeForm.employeeAddress.$invalid && addEmployeeForm.employeeAddress.$touched">{{'EMPADDRESSERR' | translate}}</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'SALARY' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeSalary" name="employeeSalary" ng-required="true" ng-model="salary" type="number" pattern="\d*" placeholder="{{'SALARY' | translate}}"
+                                                class="form-control form-control-success">
+                                            <small class="invalidmsg animated fadeIn" ng-show="addEmployeeForm.employeeSalary.$invalid && addEmployeeForm.employeeSalary.$touched">{{'EMPSALARYERR' | translate}}</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'SUPERVISOR' | translate}}</label>
+                                        <div class="col-sm-9 select">
+                                            <select id="super" name="supervisor" ng-required="true" ng-model="supervisor" ng-options="emp.EMPLASTNAME for emp in super"
+                                                class="form-control">
+                                                <option value="" disabled selected>Select your option</option>
+                                            </select>
+                                            <small class="invalidmsg animated fadeIn" ng-show="addEmployeeForm.supervisor.$invalid && addEmployeeForm.supervisor.$touched">{{'EMPSUPERVISORERR' | translate}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="form-group row">
+                                <div class="col-sm-12 centerize nowrap">
+                                    <a ui-sref="home.employees">
+                                        <input type="button" value="{{'RETURN' | translate}}" class="btn btn-primary btn-custom">
+                                    </a>
+                                    <input type="button" ng-click="addEmployee()" value="{{'ADDEMPLOYEE' | translate}}" ng-disabled="addEmployeeForm.$invalid"
+                                        class="btn btn-success btn-custom" id="btn-addemployee">
+                                    <input type="reset" value="{{'CLEARFIELDS' | translate}}" class="btn btn-danger btn-custom">
+                                </div>
+                                <div class="col-sm-12 centerize">
+                                    <small class="invalidmsg animated fadeIn" ng-show="addEmployeeForm.$invalid ">{{'ADDEMPFORMERR' | translate}}</small>
+                                </div>
+                            </div>
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

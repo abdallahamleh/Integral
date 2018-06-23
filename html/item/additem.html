@@ -1,0 +1,120 @@
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a ui-sref="home.home">{{'HOME' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item">
+			<a ui-sref="home.item">{{'ITEMS' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item active">{{'ADDITEM' | translate}}</li>
+	</ul>
+</div>
+
+<section class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card animated fadeInUp">
+					<div class="card-close">
+						<div class="dropdown">
+							<button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+								<i class="fa fa-ellipsis-v"></i>
+							</button>
+							<div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow">
+								<a ui-sref="home.manageItemType" class="dropdown-item edit">
+									<i class="fa fa-gear"></i>{{'MANAGEITEMTYPE' | translate}}</a>
+							</div>
+						</div>
+					</div>
+					<div class="card-header d-flex align-items-center">
+						<h3 class="h3">{{'ADDITEM' | translate}}</h3>
+					</div>
+					<div class="card-body">
+
+						<p>{{'FILLITEMINFORMATION' | translate}}</p>
+						<form class="form-horizontal" name="addItemForm">
+							<div class="col-lg-6">
+
+								<div class="form-group row">
+									<label class="col-sm-3 form-control-label required">{{'ITEMNAME' | translate}}</label>
+									<div class="col-sm-9">
+										<input id="invItemName" name="invItemName" ng-required="true" ng-model="itemName" type="text" placeholder="{{'ITEMNAME' | translate}}"
+										 class="form-control form-control-success">
+										<small class="invalidmsg animated fadeIn" ng-show="addItemForm.invItemName.$invalid && addItemForm.invItemName.$touched">{{'ITEMNAMEERR' | translate}}</small>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-3 form-control-label required">{{'ITEMTYPE' | translate}}</label>
+									<div class="col-sm-9 select">
+										<select id="invItemType" name="invItemType" ng-required="true" ng-model="itemTypeName" ng-options="type.INVITEMTYPENAME for type in types"
+										 name="invItemType" class="form-control">
+											<option value="" disabled selected>{{'SELECTOPTION' | translate}}</option>
+										</select>
+										<small class="invalidmsg animated fadeIn" ng-show="addItemForm.invItemType.$invalid && addItemForm.invItemType.$touched">{{'ITEMTYPEERR' | translate}}</small>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-3 form-control-label required">{{'UNIT' | translate}}</label>
+									<div class="col-sm-9 select">
+										<select id="invItemMeasurementUnit" name="invItemMeasurementUnit" ng-required="true" ng-options="unit for unit in unitList"
+										 ng-model="itemUnit" name="invItemMeasurementUnit" class="form-control">
+											<option value="" disabled selected>{{'SELECTOPTION' | translate}}</option>
+										</select>
+										<small class="invalidmsg animated fadeIn" ng-show="addItemForm.invItemMeasurementUnit.$invalid && addItemForm.invItemMeasurementUnit.$touched">{{'ITEMMEASUREMENTUNITERR' | translate}}</small>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-3 form-control-label required">{{'LASTPP' | translate}}</label>
+									<div class="col-sm-9">
+										<input id="lastPurchasePrice" name="lastPurchasePrice" min="0" ng-required="true" ng-model="itemPP" type="number" placeholder="{{'LASTPP' | translate}}"
+										 class="form-control form-control-success">
+										<small class="invalidmsg animated fadeIn" ng-show="addItemForm.lastPurchasePrice.$invalid && addItemForm.lastPurchasePrice.$touched">{{'LASTPURCHASEPRICEERR' | translate}}</small>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-3 form-control-label required">{{'QUANTITY' | translate}}</label>
+									<div class="col-sm-9">
+										<input id="invItemAmount" name="invItemAmount" min="0" ng-required="true" ng-model="itemQuantity" type="number" placeholder="{{'QUANTITY' | translate}}"
+										 class="form-control form-control-success">
+										<small class="invalidmsg animated fadeIn" ng-show="addItemForm.invItemAmount.$invalid && addItemForm.invItemAmount.$touched">{{'ITEMAMOUNTERR' | translate}}</small>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-3 form-control-label required">{{'MINALLOWEDAMOUNT' | translate}}</label>
+									<div class="col-sm-9">
+										<input id="minAllowedAmount" name="minAllowedAmount" min="0" ng-required="true" ng-model="itemMinAmount" type="number" placeholder="{{'MINALLOWEDAMOUNT' | translate}}"
+										 class="form-control form-control-success">
+										<small class="invalidmsg animated fadeIn" ng-show="addItemForm.minAllowedAmount.$invalid && addItemForm.minAllowedAmount.$touched">{{'MINALLOWEDAMOUNTERR' | translate}}</small>
+
+									</div>
+								</div>
+
+
+
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-12 centerize nowrap">
+									<a ui-sref="home.item">
+										<input type="button" value="{{'RETURN' | translate}}" class="btn btn-primary btn-custom">
+									</a>
+									<input type="button" id="btn-additem" ng-click="addItem()" value="{{'ADDITEM' | translate}}" class="btn btn-success btn-custom" ng-disabled="addItemForm.$invalid">
+									<input type="reset" value="{{'CLEARFIELDS' | translate}}" class="btn btn-danger btn-custom">
+								</div>
+								<div class="col-sm-12 centerize">
+									<small class="invalidmsg animated fadeIn" ng-show="addItemForm.$invalid ">{{'ADDITEMFORMERR' | translate}}</small>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

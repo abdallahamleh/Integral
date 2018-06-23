@@ -1,0 +1,82 @@
+<div class="breadcrumb-holder container-fluid">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a ui-sref="home.home">{{'HOME' | translate }}</a>
+		</li>
+		<li class="breadcrumb-item">
+			<a ui-sref="home.supplier">{{'SUPPLIERS' | translate }}</a>
+		</li>
+		<li class="breadcrumb-item active">{{'SUPPLIERITEMS' | translate }}</li>
+	</ul>
+</div>
+
+<section class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card animated fadeInUp">
+					<div class="card-header d-flex align-items-center">
+						<h3 class="h3">{{'SUPPLIERITEMS' | translate }}</h3>
+					</div>
+					<div class="card-body">
+						<p>{{'VIEWSUPPLIERITEMSINFO'| translate }}</p>
+						<div class="table-responsive">
+							<table class="table table-striped table-hover">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>{{'ITEMNAME' | translate}}</th>
+										<th>{{'ITEMTYPE' | translate}}</th>
+										<th colspan="1"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="item in items">
+										<th scope="row">{{$index+1}}</th>
+										<td>{{item.INVITEMNAME}}</td>
+										<td>{{item.INVITEMTYPENAME}}</td>
+										<td>
+											<button class="btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#requestItem{{$index+1}}">{{'REQUEST' | translate }}</button>
+											<div class="modal fade" id="requestItem{{$index+1}}">
+												<div class="modal-dialog modal-dialog-centered">
+													<div class="modal-content">
+
+
+														<div class="modal-header">
+															<h4 class="modal-title">{{'REQUESTITEM' | translate}} - {{item.INVITEMNAME}}</h4>
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+														</div>
+
+														<div class="modal-body">
+
+															<div class="form-group row">
+																<label class="col-sm-4 form-control-label">{{'QUANTITY' | translate}}</label>
+																<div class="col-sm-8">
+																	<input id="requestQuantity" ng-model="request.quan" type="number" placeholder="{{'QUANTITYINFO' | translate}}" class="form-control form-control-success">
+																</div>
+																<label class="col-sm-4 form-control-label">{{'NOTES' | translate}}</label>
+																<div class="col-sm-8">
+																	<textarea id="requestNotes" ng-model="request.notes" class="form-control" style="width:100%;"></textarea>
+																</div>
+															</div>
+														</div>
+
+														<div class="modal-footer">
+															<button type="button" ng-click="postRequest(item.INVITEMID,item.LASTPURCHASEPRICE,request.quan,request.notes)" class="btn btn-success"
+															 data-dismiss="modal">{{'CONFIRMREQUEST' | translate}}</button>
+														</div>
+
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

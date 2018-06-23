@@ -1,0 +1,118 @@
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a ui-sref="home.home">{{'HOME' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item">
+			<a ui-sref="home.supplier">{{'SUPPLIERS' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item active">{{compName}}</li>
+	</ul>
+</div>
+
+<section class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card  animated fadeInUp">
+
+					<div class="card-header d-flex align-items-center">
+						<h3 class="h3" ng-model="compName">{{compName}}</h3>
+					</div>
+					<div class="card-body">
+						<p>{{'EDITSUPPLIERINFORMATION' | translate}}</p>
+						<form class="form-horizontal" name="editSupplierForm">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'COMPANYNAME' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyName" name="supplierCompanyName" ng-required="true" ng-model="compName" type="text" placeholder="{{'COMPANYNAME' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editSupplierForm.supplierCompanyName.$invalid && editSupplierForm.supplierCompanyName.$touched && editSupplierForm.supplierCompanyName.$dirty">{{'COMPANYNAMEERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'COMPANYEMAIL' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyEmail" name="supplierCompanyEmail" ng-required="true" ng-model="compEmail" type="email" placeholder="{{'COMPANYEMAIL' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editSupplierForm.supplierCompanyEmail.$invalid && editSupplierForm.supplierCompanyEmail.$touched && editSupplierForm.supplierCompanyEmail.$dirty">{{'COMPANYEMAILERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row ">
+										<label class="col-sm-3 form-control-label required">{{'PHONENUMBER' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyPhoneNum" name="supplierCompanyPhoneNum" ng-required="true" ng-model="compNum" type="telephone" pattern="\d*" maxlength="10" placeholder="{{'COMPANYPHONENUM' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editSupplierForm.supplierCompanyPhoneNum.$invalid && editSupplierForm.supplierCompanyPhoneNum.$touched  && editSupplierForm.supplierCompanyPhoneNum.$dirty">{{'COMPANYPHONENUMERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'COMPANYADDRESS' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyAddress" name="supplierCompanyAddress" ng-required="true" ng-model="compAdd" type="text" placeholder="{{'COMPANYADDRESS' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editSupplierForm.supplierCompanyAddress.$invalid && editSupplierForm.supplierCompanyAddress.$touched && editSupplierForm.supplierCompanyAddress.$dirty">{{'COMPANYADDRESSERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'CITY' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyCity" name="supplierCompanyCity" ng-required="true" ng-model="compCity" type="text" placeholder="{{'CITY' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editSupplierForm.supplierCompanyCity.$invalid && editSupplierForm.supplierCompanyCity.$touched && editSupplierForm.supplierCompanyCity.$dirty">{{'COMPANYCITYERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'COUNTRY' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyCountry" name="supplierCompanyCountry" ng-required="true" ng-model="compCountry" type="text" placeholder="{{'COUNTRY' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editSupplierForm.supplierCompanyCountry.$invalid && editSupplierForm.supplierCompanyCountry.$touched && editSupplierForm.supplierCompanyCountry.$dirty">{{'COMPANYCOUNTRYERR' | translate}}</small>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'CONTACTNAME' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierContactName" name="supplierContactName" ng-required="true" ng-model="contName" type="text" placeholder="{{'CONTACTNAME' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editSupplierForm.supplierContactName.$invalid && editSupplierForm.supplierContactName.$touched && editSupplierForm.supplierContactName.$dirty">{{'CONTACTNAMEERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'CONTACTPHONENUMBER' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierContactPhoneNum" name="supplierContactPhoneNum" ng-required="true" ng-model="contNum" type="telephone" pattern="\d*" maxlength="10" placeholder="{{'CONTACTPHONENUMBER' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editSupplierForm.supplierContactPhoneNum.$invalid && editSupplierForm.supplierContactPhoneNum.$touched &&  editSupplierForm.supplierContactPhoneNum.$dirty">{{'CONTACTPHONENUMERR' | translate}}</small>
+										</div>
+									</div>
+
+
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'SUPPLIERNOTES' | translate}}</label>
+										<div class="col-sm-9 select">
+											<textarea id="supplierNotes" name="supplierNotes" ng-model="notes" ng-required="true" class="form-control" style="width:100%;"></textarea>
+											<small class="invalidmsg animated fadeIn" ng-show="editSupplierForm.supplierNotes.$invalid && editSupplierForm.supplierNotes.$touched &&  editSupplierForm.supplierNotes.$dirty">{{'SUPLLIERNOTESERR' | translate}}</small>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-12 centerize nowrap">
+									<a ui-sref="home.supplier">
+										<input type="button" value="{{'RETURN' | translate}}" class="btn btn-primary btn-custom">
+									</a>
+									<input type="button" ng-disabled="editSupplierForm.$invalid" value="{{'SAVECHANGES' | translate}}" class="btn btn-success btn-custom" ng-click="editSupplierPost()" id="btn-savechanges">
+								</div>
+								<div class="col-sm-12 centerize">
+									<small class="invalidmsg animated fadeIn" ng-show="editSupplierForm.$invalid ">{{'EDITSUPPLIERFORMERR' | translate}}</small>
+								</div>
+							</div>
+
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

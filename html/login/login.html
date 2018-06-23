@@ -1,0 +1,38 @@
+<div class="page login-page">
+	<div class="container d-flex align-items-center">
+		<div class="form-holder has-shadow">
+			<div class="row">
+				<!-- Logo & Information Panel-->
+				<div class="col-lg-6">
+					<div class="info d-flex align-items-center">
+						<div class="content">
+							<div class="logo">
+								<img src="links/img/logo.png">
+							</div>
+							<p id="slogan">The complete hotel management solution</p>
+						</div>
+					</div>
+				</div>
+				<!-- Form Panel    -->
+				<div class="col-lg-6 bg-white">
+					<div class="form d-flex align-items-center">
+						<div class="content">
+							<form id="login-form" name="login-form" method="post">
+								<div class="form-group">
+									<input id="login-username" id="test" ng-model="username" type="text" name="loginUsername" ng-required="true" class="input-material" >
+									<label for="login-username" class="label-material">{{'USERNAME' | translate}}</label>
+								</div>
+								<div class="form-group">
+									<input id="login-password"  ng-model="password" type="password" name="loginPassword" ng-required="true" class="input-material">
+									<label for="login-password" class="label-material">{{'PASSWORD' | translate}}</label>
+								</div>
+								<button ng-click="login()" class="btn btn-primary">{{'LOGIN' | translate}}</button>
+								<div ng-if="wrong" class="invalidmsg">{{'LOGINERR' | translate}}</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

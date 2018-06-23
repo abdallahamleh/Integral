@@ -1,0 +1,112 @@
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a ui-sref="home.home">{{'HOME' | translate}}</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a ui-sref="home.employees">{{'EMPLOYEES' | translate}}</a>
+        </li>
+        <li class="breadcrumb-item active">{{viewEmployee.EMPFIRSTNAME}} {{viewEmployee.EMPLASTNAME}}</li>
+    </ul>
+</div>
+
+<section class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card animated fadeInUp">
+                    <div class="card-header d-flex align-items-center">
+                        <h3 class="h3">{{viewEmployee.EMPFIRSTNAME}} {{viewEmployee.EMPLASTNAME}}</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <p>{{'MANAGEUSERINFOANDPERMISSIONS' | translate}}</p>
+                        <form class="form-horizontal" name="managePermissionsForm" novalidate>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'USERNAME' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input name="empUsername" ng-model="username"type="text" placeholder="{{'USERNAME' | translate}}" class="form-control" ng-required="true">
+                                            <small class="invalidmsg animated fadeIn" ng-show="managePermissionsForm.empUsername.$invalid && managePermissionsForm.empUsername.$touched">{{'EMPUSERNAMEERR' | translate}}</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'PASSWORD' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="empPassword"ng-model="password" name="empPassword" ng-required="true" type="password" placeholder="{{'PASSWORD' | translate}}" class="form-control">
+                                            <small class="invalidmsg animated fadeIn" ng-show="managePermissionsForm.empPassword.$invalid && managePermissionsForm.empPassword.$touched">{{'EMPPASSWORDERR' | translate}}</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'PERMISSIONS' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <button class="btn btn-dark" data-toggle="modal" data-target="#empPermissions">{{'MANAGEPERMISSIONS'|translate}}</button>
+                                        </div>
+                                        <div class="modal fade" id="empPermissions">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+
+
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">{{'MANAGEPERMISSIONS'|translate}}</h4>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-6">
+                                                                <p>{{'SELECTPERMISSIONS' | translate}}</p>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="i-checks">
+                                                                    <input id="checkboxRES"ng-model="hasres" type="checkbox" value="" class="checkbox-template">
+                                                                    <label for="checkboxRES">{{'HASRES' | translate}}</label>
+                                                                </div>
+
+                                                                <div class="i-checks">
+                                                                    <input id="checkboxROOMANDSER"ng-model="hasroom" type="checkbox" value="" class="checkbox-template">
+                                                                    <label for="checkboxROOMANDSER">{{'HASROOMANDSER' | translate}}</label>
+                                                                </div>
+                                                                <div class="i-checks">
+                                                                    <input id="checkboxEMP" ng-model="hasemp"type="checkbox" value="" class="checkbox-template">
+                                                                    <label for="checkboxEMP">{{'HASEMP' | translate}}</label>
+                                                                </div>
+                                                                <div class="i-checks">
+                                                                    <input id="checkboxINV" ng-model="hasinv"type="checkbox" value="" class="checkbox-template">
+                                                                    <label for="checkboxINV">{{'HASINV' | translate}}</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-success" data-dismiss="modal">{{'SAVECHANGES' | translate }}</button>
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">{{'CANCEL' | translate}}</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 centerize nowrap">
+                                    <a ui-sref="home.employees">
+                                        <input type="button" value="{{'RETURN' | translate}}" class="btn btn-primary btn-custom">
+                                    </a>
+                                    <input type="button" ng-click="editEmployeeUser()" value="{{'SAVECHANGES' | translate}}" class="btn btn-success btn-custom">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

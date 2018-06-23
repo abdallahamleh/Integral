@@ -1,0 +1,122 @@
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a ui-sref="home.home">{{'HOME' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item">
+			<a ui-sref="home.supplier">{{'SUPPLIERS' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item active">{{viewSupplier.SUPPLIERCOMPANYNAME}}</li>
+	</ul>
+</div>
+
+<section class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card animated fadeInUp">
+
+					<div class="card-header d-flex align-items-center">
+						<h3 class="h3">{{viewSupplier.SUPPLIERCOMPANYNAME}}</h3>
+					</div>
+					<div class="card-body">
+						<p>{{'VIEWSUPPLIERINFORMATION' | translate}}</p>
+						<form class="form-horizontal">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label">{{'COMPANYNAME' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyName" value="{{viewSupplier.SUPPLIERCOMPANYNAME}}" type="text" disabled placeholder="{{'COMPANYNAME' | translate}}"
+											 class="form-control">
+											<small class="form-text">{{'COMPFULLNAME' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label">{{'COMPANYEMAIL' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyEmail" value="{{viewSupplier.SUPPLIERCOMPANYEMAIL}}" type="email" disabled placeholder="{{'COMPANYEMAIL' | translate}}"
+											 class="form-control">
+											<small class="form-text">{{'COMPFULLEMAIL' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label">{{'PHONENUMBER' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyPhoneNum" value="{{viewSupplier.SUPPLIERCOMPANYPHONENUM}}" type="telephone" disabled placeholder="{{'COMPANYPHONENUM' | translate}}"
+											 class="form-control">
+											<small class="form-text">{{'COMPFULLPHONENUMBER' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label">{{'COMPANYADDRESS' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyAddress" value="{{viewSupplier.SUPPLIERCOMPANYADRESS}}" type="text" disabled placeholder="{{'COMPANYADDRESS' | translate}}"
+											 class="form-control">
+											<small class="form-text">{{'COMPANYFULLADDRESS' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label">{{'CITY' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyAddress" value="{{viewSupplier.SUPPLIERCOMPANYCITY}}" type="text" disabled placeholder="{{'CITY' | translate}}"
+											 class="form-control">
+											<small class="form-text">The city where the supplying company is located.</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label">{{'COUNTRY' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierCompanyCountry" value="{{viewSupplier.SUPPLIERCOMPANYCOUNTRY}}" type="text" disabled placeholder="{{'COUNTRY' | translate}}"
+											 class="form-control">
+											<small class="form-text">{{'COMPANYFULLCOUNTRY' | translate}}</small>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label">{{'CONTACTNAME' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierContactName" value="{{viewSupplier.SUPPLIERCONTACTNAME}}" type="text" disabled placeholder="{{'CONTACTNAME' | translate}}"
+											 class="form-control">
+											<small class="form-text">{{'CONTACTFULLNAME' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label">{{'CONTACTPHONENUMBER' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="supplierContactPhoneNum" value="{{viewSupplier.SUPPLIERCONTACTPHONENUM}}" type="telephone" disabled placeholder="{{'CONTACTPHONENUMBER' | translate}}"
+											 class="form-control">
+											<small class="form-text">{{'CONTACTFULLPHONENUMBER' | translate}}</small>
+										</div>
+									</div>
+
+
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label">{{'SUPPLIERNOTES' | translate}}</label>
+										<div class="col-sm-9 select">
+											<textarea id="supplierNotes" class="form-control" style="width:100%;" disabled>{{viewSupplier.SUPPLIERNOTES}}</textarea>
+											<small class="form-text">{{'SUPPLIERFULLNOTES' | translate}}</small>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-12 centerize">
+									<a ui-sref="home.supplier">
+										<input type="button" value="{{'RETURN' | translate}}" class="btn btn-primary btn-custom">
+									</a>
+								</div>
+							</div>
+
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

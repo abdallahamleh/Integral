@@ -1,0 +1,1 @@
+var app = angular.module('mainApp', ['pascalprecht.translate', 'ui.router','ngCookies']);

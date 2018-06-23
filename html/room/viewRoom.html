@@ -1,0 +1,122 @@
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a ui-sref="home.home">{{'HOME' | translate}}</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a ui-sref="home.room">{{'ROOMS' | translate}}</a>
+        </li>
+        <li class="breadcrumb-item active">{{viewRoom.ROOMNUM}}</li>
+    </ul>
+</div>
+
+<section class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card animated fadeInUp">
+                    <div class="card-header d-flex align-items-center">
+                        <h3 class="h3">{{viewRoom.ROOMNUM}}</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <p>{{'VIEWROOMINFO' | translate}}</p>
+                        <form class="form-horizontal" name="addRoomForm">
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'ROOMNUM' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="roomNum" name="roomNum" disabled type="number" value="{{viewRoom.ROOMNUM}}" class="form-control form-control-success"> </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'ROOMTYPE' | translate}}</label>
+                                        <div class="col-sm-9 select">
+                                            <select id="roomType" name="roomType" disabled class="form-control">
+                                                <option value="" disabled selected>{{viewRoom.ROOMTYPENAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'ROOMLOCATION' | translate}}</label>
+                                        <div class="col-sm-9 select">
+                                            <select id="roomLocation" name="roomLocation" disabled class="form-control">
+                                                <option value="" disabled selected>{{viewRoom.ROOMLOCATION}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'ROOMPRICE' | translate}}</label>
+                                        <div class="col-sm-9 select">
+                                            <input id="roomPrice" name="roomPrice" disabled value="{{viewRoom.ROOMPRICE}}" class="form-control form-control-success">
+                                            <span class="unit unselectable">₪/night</span>
+                                            <small class="invalidmsg animated fadeIn" ng-show="editRoomForm.roomPrice.$invalid && editRoomForm.roomPrice.$touched">{{'ROOMPRICEERR' | translate}}</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'ROOMSTATUS' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="roomStatus" name="roomStatus" disabled value="{{viewRoom.ROOMSTATUS}}" disabled class="form-control form-control-success">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'ROOMDESC' | translate}}</label>
+                                        <div class="col-sm-9 select">
+                                            <textarea id="roomDesc" name="roomDesc" class="form-control" style="width:100%;" disabled>{{viewRoom.ROOMDESCRIPTION}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'ROOMDETAILS' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <div class="i-checks">
+                                                <input id="checkboxSmoking" type="checkbox" value="" ng-model="smoking" disabled class="checkbox-template">
+                                                <label for="checkboxSmoking">{{'SMOKINGALLOWED' | translate}}</label>
+                                            </div>
+                                            <div class="i-checks">
+                                                <input id="checkboxBalcony" type="checkbox" value="" ng-model="balcony" disabled class="checkbox-template">
+                                                <label for="checkboxBalcony">{{'HASBALCONY' | translate}}</label>
+                                            </div>
+                                            <div class="i-checks">
+                                                <input id="checkboxInternet" type="checkbox" value="" ng-model="internet" disabled class="checkbox-template">
+                                                <label for="checkboxInternet">{{'HASINTERNET' | translate}}</label>
+                                            </div>
+                                            <div class="i-checks">
+                                                <input id="checkboxSafe" type="checkbox" value="" disabled ng-model="safe" class="checkbox-template">
+                                                <label for="checkboxSafe">{{'HASSAFE' | translate}}</label>
+                                            </div>
+                                            <div class="i-checks">
+                                                <input id="checkboxMinibar" type="checkbox" value="" ng-model="minibar" disabled class="checkbox-template">
+                                                <label for="checkboxMinibar">{{'HASMINIBAR' | translate}}</label>
+                                            </div>
+                                            <div class="i-checks">
+                                                <input id="checkboxBathtub" type="checkbox" value="" ng-model="tub" disabled class="checkbox-template">
+                                                <label for="checkboxBathtub">{{'HASBATHTUB' | translate}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="form-group row">
+                                <div class="col-sm-12 centerize nowrap">
+                                    <a ui-sref="home.room">
+                                        <input type="button" value="{{'RETURN' | translate}}" class="btn btn-primary btn-custom">
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

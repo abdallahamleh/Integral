@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.7",
+    "angular-cookies": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "express-g": "^1.0.9",
+    "jquery": "^3.3.1",
+    "ng-translate": "^1.0.3"
+  },
+  "devDependencies": {
+    "angular-translate": "^2.17.0"
+  }
+}

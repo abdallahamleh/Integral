@@ -1,0 +1,100 @@
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a ui-sref="home.home">{{'HOME' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item">
+			<a ui-sref="home.client">{{'CLIENTS' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item active">{{lastName}}, {{firstName}}</li>
+	</ul>
+</div>
+
+<section class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card  animated fadeInUp">
+
+					<div class="card-header d-flex align-items-center">
+						<h3 class="h3" ng-model="compName">{{lastName}}, {{firstName}}</h3>
+					</div>
+					<div class="card-body">
+						<p>{{'EDITCLIENTINFO' | translate}}</p>
+						<form class="form-horizontal" name="editClientForm">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'FIRSTNAME' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="clientFirstName"ng-model="firstName" name="clientFirstName" ng-required="true" type="text" placeholder="{{'FIRSTNAME' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editClientForm.clientFirstName.$invalid && editClientForm.clientFirstName.$touched && editClientForm.clientFirstName.$dirty">{{'CLIENTFIRSTNAMEERR' | translate}}</small>
+										</div>
+                                    </div>
+                                    <div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'LASTNAME' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="clientLastName"ng-model="lastName" name="clientLastName" ng-required="true" type="text" placeholder="{{'LASTNAME' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editClientForm.clientLastName.$invalid && editClientForm.clientLastName.$touched && editClientForm.clientLastName.$dirty">{{'CLIENTLASTNAMEERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'EMAIL' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="clientEmail" ng-model="email"name="clientEmail" ng-required="true" type="email" placeholder="{{'EMAIL' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editClientForm.clientEmail.$invalid && editClientForm.clientEmail.$touched && editClientForm.clientEmail.$dirty">{{'CLIENTEMAILERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row ">
+										<label class="col-sm-3 form-control-label required">{{'PHONENUMBER' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="clientPhoneNum" ng-model="phonenum"name="clientPhoneNum" ng-required="true"  type="telephone" pattern="\d*" maxlength="10" placeholder="{{'PHONENUMBER' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editClientForm.clientPhoneNum.$invalid && editClientForm.clientPhoneNum.$touched  && editClientForm.clientPhoneNum.$dirty">{{'CLIENTPHONENUMERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'ADDRESS' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="clientAddress" ng-model="address"name="clientAddress" ng-required="true" type="text" placeholder="{{'ADDRESS' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editClientForm.clientAddress.$invalid && editClientForm.clientAddress.$touched && editClientForm.clientAddress.$dirty">{{'CLIENTADDRESSERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'CITY' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="clientCity" ng-model="city"name="clientCity" ng-required="true" type="text" placeholder="{{'CITY' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editClientForm.clientCity.$invalid && editClientForm.clientCity.$touched && editClientForm.clientCity.$dirty">{{'CLIENTCITYEERR' | translate}}</small>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-3 form-control-label required">{{'COUNTRY' | translate}}</label>
+										<div class="col-sm-9">
+											<input id="clientCountry" ng-model="country" name="clientCountry" ng-required="true" type="text" placeholder="{{'COUNTRY' | translate}}" class="form-control">
+											<small class="invalidmsg animated fadeIn" ng-show="editClientForm.clientCountry.$invalid && editClientForm.clientCountry.$touched && editClientForm.clientCountry.$dirty">{{'CLIENTCOUNTRYERR' | translate}}</small>
+										</div>
+									</div>
+								</div>
+                            </div>
+                            <hr />
+							<div class="form-group row">
+								<div class="col-sm-12 centerize nowrap">
+									<a ui-sref="home.client">
+										<input type="button" value="{{'RETURN' | translate}}" class="btn btn-primary btn-custom">
+									</a>
+									<input type="button" ng-click="editClientPost()"ng-disabled="editClientForm.$invalid" value="{{'SAVECHANGES' | translate}}" class="btn btn-success btn-custom"  id="btn-savechanges">
+								</div>
+								<div class="col-sm-12 centerize">
+									<small class="invalidmsg animated fadeIn" ng-show="editClientForm.$invalid ">{{'EDITCLIENTFORMERR' | translate}}</small>
+								</div>
+							</div>
+
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

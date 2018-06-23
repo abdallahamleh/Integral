@@ -1,0 +1,68 @@
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a ui-sref="home.home">{{'HOME' | translate}}</a>
+        </li>
+        <li class="breadcrumb-item">{{'ROOMSANDSERVICES' | translate}}</li>
+        <li class="breadcrumb-item">
+            <a ui-sref="home.room">{{'ROOMS' | translate}}</a>
+        </li>
+        <li class="breadcrumb-item active">{{'MANAGEROOMTYPE' | translate}}</li>
+    </ul>
+</div>
+
+<section class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card  animated fadeIn">
+                    <div class="card-close">
+                        <div class="dropdown">
+                            <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </button>
+                            <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow">
+                                <a ui-sref="home.addRoomType" class="dropdown-item edit">
+                                    <i class="fa fa-plus"></i>{{'ADDROOMTYPE' | translate}}</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-header d-flex align-items-center">
+                        <h3 class="h3">{{'MANAGEROOMTYPE' | translate}}</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <p>{{'MANAGEROOMTYPEINFO' | translate}}</p>
+                        <div class="table-responsive  animated fadeInUp">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>{{'ROOMTYPENAME' | translate}}</th>
+                                        <th>{{'ROOMTYPEDESC' | translate}}</th>
+                                        <th>{{'MAXCAPACITY' | translate}}</th>
+                                        <th colspan="1"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="type in types" class=" animated fadeInUp">
+                                        <th scope="row">{{$index+1}}</th>
+                                        <td>{{type.ROOMTYPENAME}}</td>
+                                        <td>{{type.ROOMTYPEDESCRIPTION}}</td>
+                                        <td>{{type.ROOMMAXCAPACITY}}</td>
+                                        <td class="btn-cell">
+                                            <button ng-click="deleteType(type.ROOMTYPEID)"class="btn btn-danger btn-sm btn-n">{{'DELETE' | translate }}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

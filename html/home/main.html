@@ -1,0 +1,151 @@
+<div class="page">
+    <!-- Main Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <!-- Navbar Header-->
+                    <div class="navbar-header">
+                        <!-- Navbar Brand -->
+                        <a ui-sref=".home" class="navbar-brand">
+                            <div class="brand-text brand-big">
+                                <img src="links/img/logo-big.png">
+                            </div>
+                            <div class="brand-text brand-small">
+                                <img src="links/img/logo-small.png">
+                            </div>
+                        </a>
+                        <!-- Toggle Button-->
+                        <a id="toggle-btn" href="" class="menu-btn active"  ng-click="toggle = !toggle" ng-class="{'active': !toggle }">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
+                    </div>
+                    <!-- Navbar Menu -->
+                    <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                        <li ng-controller="translateCont">
+                            <span id="lang-en" class="lang-lg animated zoomIn hide" lang="en" ng-click="changeLanguage('en')"></span>
+                            <span id="lang-ar" class="lang-lg animated zoomIn " lang="ar" ng-click="changeLanguage('ar')"></span>
+                        </li>
+                        <!-- Logout    -->
+                        <li class="nav-item">
+                            <a ui-sref="login" class="nav-link logout">{{'LOGOUT' | translate}}
+                                <i class="fa fa-sign-out"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar" ng-controller="sidebarController" ng-class="{'shrinked': toggle }">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar">
+                    <img src="links/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle">
+                </div>
+                <div class="title">
+                    <h1 class="h4">{{empName}}</h1>
+                    <p>{{empPos}}</p>
+                </div>
+            </div>
+            <!-- Sidebar Navidation Menus-->
+            <span class="heading">{{'MAIN' | translate}}</span>
+            <ul class="list-unstyled">
+                <li ng-class="{ active: isActive('/home/main')}">
+                    <a ui-sref=".home">
+                        <i class="fa fa-home"></i>{{'HOME' | translate}}</a>
+                </li>
+                <li ng-if="reserv" ng-class="{ active: isActive('/home/client') || isActive('/home/reservation')}">
+                    <a href="#reservationsDropdown" ng-click="$event.preventDefault()" aria-expanded="false" data-toggle="collapse">
+                        <i class="fa fa-calendar-o"></i>{{'RESERVATIONSANDCLIENTS' | translate}}</a>
+                    <ul id="reservationsDropdown" class="collapse list-unstyled ">
+                        <li ng-class="{ active: isActive('/home/reservation')}">
+                            <a ui-sref=".reservation">
+                                <i class="fa fa-calendar"></i>{{'RESERVATIONS' | translate}}</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/home/client')}">
+                            <a ui-sref=".client">
+                                <i class="fa fa fa-user"></i>{{'CLIENTS' | translate}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li ng-if="room" ng-class="{ active: isActive('/home/room') || isActive('/home/services')}">
+                    <a href="#roomsDropdown" ng-click="$event.preventDefault();" aria-expanded="false" data-toggle="collapse">
+                        <i class="fa fa-bed"></i>{{'ROOMSANDSERVICES' | translate}}</a>
+                    <ul id="roomsDropdown" class="collapse list-unstyled ">
+                        <li ng-class="{ active: isActive('/home/room')}">
+                            <a ui-sref=".room">
+                                <i class="fa fa-bed"></i>{{'ROOMS' | translate}}</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/home/services')}">
+                            <a ui-sref=".service">
+                                <i class="fa fa-server"></i>{{'SERVICES' | translate}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li ng-if="emps" ng-class="{ active: isActive('/home/employees') || isActive('/home/addEmployee') || isActive('/home/viewEmployee') || isActive('/home/editmployee') } ">
+                    <a ui-sref=".employees">
+                        <i class="fa fa-users"></i>{{'EMPLOYEES' | translate}}</a>
+                </li>
+
+                <!-- <li ng-if="facilities">
+                    <a href="#facilitiesDropdown" ng-click="$event.preventDefault()" aria-expanded="false" data-toggle="collapse">
+                        <i class="fa fa-building"></i>{{'FACILITIES' | translate}}</a>
+                    <ul id="facilitiesDropdown" class="collapse list-unstyled ">
+                        <li>
+                            <a ui-sref="#">
+                                <i class="fa fa-spoon"></i>{{'RESTAURANTS' | translate}}</a>
+                        </li>
+                        <li>
+                            <a ui-sref="#">
+                                <i class="fa fa-slideshare"></i>{{'HALLS' | translate}}</a>
+                        </li>
+                    </ul>
+                </li> -->
+
+                <li ng-if="inventory" ng-class="{ active: isActive('/home/supplier') || isActive('/home/item') || isActive('/home/pendingRequests') } ">
+                    <a href="#inventoryDropdown" ng-click="$event.preventDefault()" aria-expanded="false" data-toggle="collapse">
+                        <i class="fa fa-shopping-cart"></i>{{'INVENTORY' | translate}}</a>
+                    <ul id="inventoryDropdown" class="collapse list-unstyled ">
+                        <li ng-class="{ active: isActive('/home/supplier')}">
+                            <a ui-sref=".supplier">
+                                <i class="fa fa-cart-arrow-down"></i>{{'SUPPLIERS' | translate}}</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/home/item')}">
+                            <a ui-sref=".item">
+                                <i class="fa fa-shopping-basket"></i>{{'ITEMS' | translate}}</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/home/pendingRequests')}">
+                            <a ui-sref=".pendingRequests">
+                                <i class="fa fa-clock-o"></i>{{'REQUESTS' | translate}}</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <div class="content-inner" ng-class="{'active': toggle }">
+            <!-- Page Header-->
+            <header class="page-header">
+                <div class="container-fluid">
+                    <h2 class="no-margin-bottom" id="dashtitle">{{'DASH' | translate}}</h2>
+                </div>
+            </header>
+            <div ui-view class="view" ng-controller="notificationController"></div>
+            <!-- Page Footer-->
+            <footer class="main-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>Integral &copy; 2018</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>

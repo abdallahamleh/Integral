@@ -1,0 +1,77 @@
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a ui-sref="home.home">{{'HOME' | translate}}</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a ui-sref="home.service">{{'SERVICES' | translate}}</a>
+        </li>
+        <li class="breadcrumb-item active">{{'ADDSERVICE' | translate}}</li>
+    </ul>
+</div>
+
+<section class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card  animated fadeInUp">
+                    <div class="card-header d-flex align-items-center">
+                        <h3 class="h3">{{'ADDSERVICE' | translate}}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>{{'FILLSERVICEINFO' | translate}}</p>
+                        <form class="form-horizontal" name="addServiceForm">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'SERVICETYPENAME' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="serviceTypeName" ng-model="name" name="serviceTypeName" ng-required="true" type="text" placeholder="{{'SERVICETYPENAME' | translate}}"
+                                                class="form-control form-control-success">
+                                            <small class="invalidmsg animated fadeIn" ng-show="addServiceForm.serviceTypeName.$invalid && addServiceForm.serviceTypeName.$touched">{{'SERVICETYPENAMEERR' | translate}}</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'PRICE' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="servicePrice" ng-model="price" name="servicePrice" ng-required="true" type="number" placeholder="{{'PRICE' | translate}}"
+                                                class="form-control form-control-success">
+                                            <small class="invalidmsg animated fadeIn" ng-show="addServiceForm.servicePrice.$invalid && addServiceForm.servicePrice.$touched">{{'SERVICEPRICEERR' | translate}}</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label required">{{'SERVICETYPEDESC' | translate}}</label>
+                                        <div class="col-sm-9 select">
+                                            <textarea id="serviceDesc" ng-model="description" name="serviceDesc" class="form-control" style="width:100%;" placeholder="{{'SERVICETYPEDESC' | translate}}"
+                                                ng-required="true"></textarea>
+                                            <small class="invalidmsg animated fadeIn" ng-show="addServiceForm.serviceDesc.$invalid && addServiceForm.serviceDesc.$touched">{{'SERVICETYPEDESCERR' | translate}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+
+                            <div class="form-group row">
+                                <div class="col-sm-12 centerize nowrap">
+                                    <a ui-sref="home.service">
+                                        <input type="button" value="{{'RETURN' | translate}}" class="btn btn-primary btn-custom">
+                                    </a>
+                                    <input type="button" ng-click="addService()" ng-disabled="addServiceForm.$invalid" value="{{'ADDSERVICE' | translate}}" class="btn btn-success btn-custom">
+                                </div>
+                                <div class="col-sm-12 centerize">
+                                    <small class="invalidmsg animated fadeIn" ng-show="addServiceForm.$invalid ">{{'ADDSERVICEFORMERR' | translate}}</small>
+                                </div>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

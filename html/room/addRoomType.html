@@ -1,0 +1,80 @@
+<!-- Breadcrumb-->
+<div class="breadcrumb-holder container-fluid">
+	<ul class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a ui-sref="home.home">{{'HOME' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item">{{'ROOMSANDSERVICES' | translate}}</li>
+		<li class="breadcrumb-item">
+			<a ui-sref="home.room">{{'ROOMS' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item">
+			<a ui-sref="home.manageRoomType">{{'MANAGEROOMTYPE' | translate}}</a>
+		</li>
+		<li class="breadcrumb-item active">{{'ADDROOMTYPE' | translate}}</li>
+	</ul>
+</div>
+
+<section class="main">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card  animated fadeInUp">
+
+					<div class="card-header d-flex align-items-center">
+						<h3 class="h3">{{'ADDROOMTYPE' | translate}}</h3>
+					</div>
+					<div class="card-body">
+
+						<p>{{'FILLROOMTYPEINFO' | translate}}</p>
+						<form class="form-horizontal" name="addRoomTypeForm">
+							<div class="col-lg-6">
+
+								<div class="form-group row">
+									<label class="col-sm-3 form-control-label required">{{'ROOMTYPENAME' | translate}}</label>
+									<div class="col-sm-9">
+										<input id="roomTypeName" ng-model="roomTypeName" name="roomTypeName" ng-required="true" type="text" placeholder="{{'ROOMTYPENAME' | translate}}"
+										 class="form-control form-control-success">
+										<small class="invalidmsg animated fadeIn" ng-show="addRoomTypeForm.roomTypeName.$invalid && addRoomTypeForm.roomTypeName.$touched">{{'ROOMTYOENAMEERR' | translate}}</small>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-3 form-control-label required">{{'MAXCAPACITY' | translate}}</label>
+									<div class="col-sm-9">
+										<input id="maxCapacity" ng-model="roomMaxCapacity" name="maxCapacity" ng-required="true" type="number" placeholder="{{'MAXCAPACITY' | translate}}"
+										 class="form-control form-control-success">
+										<small class="invalidmsg animated fadeIn" ng-show="addRoomTypeForm.maxCapacity.$invalid && addRoomTypeForm.maxCapacity.$touched">{{'MAXCAPACITYERR' | translate}}</small>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-3 form-control-label required">{{'ROOMTYPEDESC' | translate}}</label>
+									<div class="col-sm-9 select">
+										<textarea id="roomTypeDesc" ng-model="roomTypeDescription" name="roomTypeDesc" class="form-control" style="width:100%;" placeholder="{{'ROOMTYPEDESC' | translate}}"
+										 ng-required="true"></textarea>
+										<small class="invalidmsg animated fadeIn" ng-show="addRoomTypeForm.roomTypeDesc.$invalid && addRoomTypeForm.roomTypeDesc.$touched">{{'ROOMTYPEDESCERR' | translate}}</small>
+									</div>
+								</div>
+							</div>
+							<hr/>
+							<div class="form-group row">
+								<div class="col-sm-12 centerize nowrap">
+									<a ui-sref="home.manageRoomType">
+										<input type="button" value="{{'RETURN' | translate}}" class="btn btn-primary btn-custom">
+									</a>
+									<input type="button" ng-click="addRoomType()" ng-disabled="addRoomTypeForm.$invalid" value="{{'ADDROOMTYPE' | translate}}"
+									 class="btn btn-success btn-custom">
+								</div>
+								<div class="col-sm-12 centerize">
+									<small class="invalidmsg animated fadeIn" ng-show="addRoomTypeForm.$invalid ">{{'ADDROOMTYPEERR' | translate}}</small>
+								</div>
+							</div>
+
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

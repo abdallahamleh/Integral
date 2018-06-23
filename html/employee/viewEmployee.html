@@ -1,0 +1,107 @@
+<div class="breadcrumb-holder container-fluid">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a ui-sref="home.home">{{'HOME'| translate}}</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a ui-sref="home.employees">{{'EMPLOYEES' | translate}}</a>
+        </li>
+        <li class="breadcrumb-item active">{{viewEmployee.EMPFIRSTNAME}} {{viewEmployee.EMPLASTNAME}}</li>
+    </ul>
+</div>
+
+<section class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card animated fadeInUp">
+                    <div class="card-header d-flex align-items-center">
+                        <h3 class="h3">{{viewEmployee.EMPFIRSTNAME}} {{viewEmployee.EMPLASTNAME}}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>{{'VIEWEMPLOYEEINFO' | translate}}</p>
+                        <form class="form-horizontal">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'FIRSTNAME' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeFirstName" value="{{viewEmployee.EMPFIRSTNAME}}" type="text" placeholder="{{'FIRSTNAME' | translate}}"
+                                                class="form-control form-control-success" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'LASTNAME' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeLastName" value="{{viewEmployee.EMPLASTNAME}}" type="text" placeholder="{{'LASTNAME' | translate}}" class="form-control form-control-success"
+                                                disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'GENDER' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeGender" value="{{viewEmployee.EMPGENDER}}" type="text" placeholder="{{'GENDER' | translate}}" class="form-control form-control-success"
+                                                disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'POSITION' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeePosition" value="{{viewEmployee.EMPPOSITION}}" type="text" placeholder="{{'POSITION' | translate}}" class="form-control form-control-success"
+                                                disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'DEPARTMENT' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeDepartment" value="{{viewEmployee.EMPDEPARTMENT}}" type="text" placeholder="{{'DEPARTMENT' | translate}}"
+                                                class="form-control form-control-success" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'ADDRESS' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeAddress" value="{{viewEmployee.EMPADDRESS}}" type="text" placeholder="{{'ADDRESS' | translate}}" class="form-control form-control-success"
+                                                disabled>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'SALARY' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeSalary" value="{{viewEmployee.EMPSALARY}}" type="text" placeholder="{{'SALARY' | translate}}" class="form-control form-control-success"
+                                                disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">{{'SUPERVISOR' | translate}}</label>
+                                        <div class="col-sm-9">
+                                            <input id="employeeSupervisor" value="{{viewEmployee.SUPERVISORFIRSTNAME}} {{viewEmployee.SUPERVISORLASTNAME}}" type="text"
+                                                placeholder="{{'SUPERVISOR' | translate}}" class="form-control form-control-success"
+                                                disabled>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-8 nowrap">
+                                    <a ui-sref="home.employees">
+                                        <input type="button" value="{{'RETURN' | translate}}" class="btn btn-primary btn-custom">
+                                    </a>
+                                </div>
+                            </div>
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

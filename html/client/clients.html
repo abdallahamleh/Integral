@@ -1,0 +1,106 @@
+<div class="breadcrumb-holder container-fluid">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a ui-sref="home.home">{{'HOME' | translate }}</a>
+        </li>
+        <li class="breadcrumb-item active">{{'CLIENTS' | translate }}</li>
+    </ul>
+</div>
+
+<section class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card animated fadeIn">
+                    <div class="card-close">
+                        <div class="dropdown">
+                            <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </button>
+                            <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow">
+                                <a ui-sref="home.addClient" class="dropdown-item edit">
+                                    <i class="fa fa-plus"></i>{{'ADDCLIENT' | translate }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                        <h3 class="h3">{{'CLIENTS' | translate }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group animated fadeInUp">
+                            <div class="input-group">
+                                <input type="text" ng-model="searchValue" class="form-control" placeholder="{{'SEARCHBYCLIENTNAME' | translate }}">
+                                <div class="input-group-append">
+                                    <button type="button" ng-click="search()" class="btn btn-primary">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive animated fadeInUp">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>{{'CLIENTNAME' | translate }}</th>
+                                        <th>{{'EMAIL' | translate }}</th>
+                                        <th>{{'PHONENUMBER' | translate }}</th>
+                                        <th colspan="3"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="client in clients" class="animated fadeInUp">
+                                        <th scope="row">{{$index+1}}</th>
+                                        <td>{{client.CLIENTLASTNAME}}, {{client.CLIENTFIRSTNAME}}</td>
+                                        <td>{{client.CLIENTEMAIL}}</td>
+                                        <td>{{client.CLIENTPHONENUM}}</td>
+                                        <td class="btn-cell">
+                                            <a ui-sref="home.viewClient({id:{{client.CLIENTID}}})" style="width:100%;">
+                                                <button class="btn btn-primary btn-sm btn-n">{{'VIEW' | translate }}</button>
+                                            </a>
+                                        </td>
+                                        <td class="btn-cell">
+                                            <a ui-sref="home.editClient({id:{{client.CLIENTID}}})" style="width:100%;">
+                                                <button class="btn btn-success btn-sm btn-n">{{'EDIT' | translate }}</button>
+                                            </a>
+                                        </td>
+                                        <td class="btn-cell">
+                                            <button class="btn btn-danger btn-sm btn-n" data-toggle="modal" data-target="#removeClient">{{'REMOVE' | translate }}</button>
+                                            <div class="modal fade" id="removeClient">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+
+
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">{{'REMOVECLIENT' | translate}} - Client Name</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+
+                                                            <div class="form-group row">
+                                                                <span class="col-sm-12">{{'REMOVECLIENTWARNING' | translate}}</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button ng-click="removeClient(client.CLIENTID)" id="btn-remclient" class="btn btn-danger btn-test" data-dismiss="modal">{{'REMOVE' | translate }}</button>
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">{{'CANCEL' | translate}}</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

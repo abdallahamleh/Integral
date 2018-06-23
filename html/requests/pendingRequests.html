@@ -1,0 +1,115 @@
+<div class="breadcrumb-holder container-fluid">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a ui-sref="home.home">{{'HOME' | translate }}</a>
+        </li>
+        <li class="breadcrumb-item active">{{'PENDINGREQUESTS' | translate }}</li>
+    </ul>
+</div>
+
+<section class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-close">
+                        <div class="dropdown">
+                            <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </button>
+                            <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow">
+                                <a ui-sref="home.completedRequests" class="dropdown-item edit">
+                                    <i class="fa fa-check"></i>{{'SHOWCOMPLETEDREQUESTS' | translate }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                        <h3 class="h3">{{'PENDINGREQUESTS' | translate }}</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>{{'ITEM' | translate}}</th>
+                                        <th>{{'SUPPLIER' | translate}}</th>
+                                        <th>{{'QUANTITY' | translate}}</th>
+                                        <th>{{'BY'|translate}}</th>
+                                        <th>{{'TOTALPRICE'|translate}}</th>
+                                        <th colspan="2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="request in requests">
+                                        <td>{{request.REQUESTID}}</td>
+                                        <td>{{request.INVITEMNAME}}</td>
+                                        <td>{{request.SUPPLIERCOMPANYNAME}}</td>
+                                        <td>{{request.REQUESTQUANTITY}}</td>
+                                        <td>{{request.EMPFIRSTNAME}} {{request.EMPLASTNAME}}</td>
+                                        <td>{{request.REQUESTTOTALPRICE}}</td>
+                                        <td class="btn-cell">
+                                            <button class="btn btn-primary btn-sm btn-n" data-toggle="modal" data-target="#viewRequestDetails{{$index+1}}">{{'VIEWNOTES' | translate }}</button>
+                                            <div class="modal fade" id="viewRequestDetails{{$index+1}}">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+
+
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">{{'VIEWNOTES' | translate}}</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+
+                                                            <div class="form-group row">
+                                                                <span class="col-sm-12">{{request.REQUESTNOTES}}</span>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="btn-cell">
+                                            <button class="btn btn-success btn-sm btn-n" data-toggle="modal" data-target="#completeRequest{{$index+1}}">{{'CONFIRM' | translate }}</button>
+                                            <div class="modal fade" id="completeRequest{{$index+1}}">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+
+
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">{{'CONFIRMREQUEST' | translate}}</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <div class="modal-body">
+
+                                                            <div class="form-group row">
+                                                                <span class="col-sm-12">{{'CONFIRMREQUESTMESSAGE' | translate}}</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button ng-click="confirm(request.REQUESTID)"class="btn btn-success" data-dismiss="modal">{{'CONFIRM' | translate }}</button>
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">{{'CANCEL' | translate}}</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

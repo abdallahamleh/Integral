@@ -1,4 +1,4 @@
-# Integral
+Integral
 This project is a Hotel Managment System that is created using OracleDB, AngularJS, and NodeJS.
 ----
 Requirments:
@@ -8,4 +8,4 @@ The database is provided in the db.sql file.
 ----
 Running:
 1-In the main directory the follow command should be run: "http-server" in order to run the http server
-2-In the ex directory the following command should be run: "npm start" in order to run the database server
+2-In the ex directory the following command should be run: "npm star

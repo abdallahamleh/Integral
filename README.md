@@ -7,7 +7,7 @@ Requirments:
 1- In order to run the project, you have to have oracleDB installed and to use the configuration in the dbconfig.js file.
 The database is provided in the db.sql file.
 2- NodeJS and NPM should be installed along side an http-server to test the project.
-----
+
 
 Running:
 
